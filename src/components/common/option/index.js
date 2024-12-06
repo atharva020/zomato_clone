@@ -26,8 +26,17 @@ const tabs=[
 ]
 const Option = ({activeTab,setActiveTab}) => {
   return (
-    <div>
-      Options
+    <div className='tab-options'>
+      <div className='max-width options-wrapper'>
+        {tabs.map((tab)=>{
+          return <div onClick={()=>setActiveTab(tab.name)}
+          className={`tab-item absolute-center cur-po ${activeTab===tab.name && "active-tab"}`}> 
+          <div className='tab-image-container absolute-center' style={{backgroundColor:`${activeTab===tab.name?tab.backdrop:""}`,}}>
+            <img className='tab-image' alt={tab.name} src={activeTab===tab.name?tab.active_image:tab.inactive_image}/>
+            </div>
+          </div>
+        })}
+      </div>
     </div>
   )
 }
