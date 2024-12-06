@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Option = () => {
+const Option = ({activeTab,setActiveTab}) => {
   return (
     <div>
       Options
