@@ -30,4 +30,13 @@
 .tab-image {
     width: 30px;
     height: 30px;
+
+}
+
+.active-tab {
+    border-bottom: 2px solid var(--zomato-red);
+}
+
+.active-tab .tab-name {
+    color: var(--zomato-red);
 }
