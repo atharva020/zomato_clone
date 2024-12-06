@@ -34,6 +34,7 @@ const Option = ({activeTab,setActiveTab}) => {
           <div className='tab-image-container absolute-center' style={{backgroundColor:`${activeTab===tab.name?tab.backdrop:""}`,}}>
             <img className='tab-image' alt={tab.name} src={activeTab===tab.name?tab.active_image:tab.inactive_image}/>
             </div>
+            <div className='tab-name'>{tab.name}</div>
           </div>
         })}
       </div>
