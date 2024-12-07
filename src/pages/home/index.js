@@ -13,7 +13,7 @@ const HomePage = () => {
     switch(tab){
       case 'Delivery':
         return <Delivery/>
-      case 'Dining':
+      case 'Dining Out':
         return <DiningOut/>
       case 'Nightlife':
         return <Nightlife/>

@@ -118,3 +118,9 @@
     font-weight: 600;
     color: var(--heading-text);
 }
+
+.explore-card:hover {
+    border: 1px solid var(--border-white);
+    background-color: var(--primary-bg);
+
+}
