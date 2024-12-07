@@ -12,3 +12,15 @@
 .cur-po {
     cursor: pointer;
 }
+
+.collection-title {
+    font-size: 28px;
+    margin-bottom: 32px;
+    font-weight: 600;
+    color: var(--heading-text);
+}
+
+.slick-next:before,
+.slick-prev:before {
+    color: var(--gray);
+}
