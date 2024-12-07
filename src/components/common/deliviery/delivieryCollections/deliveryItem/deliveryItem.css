@@ -1,9 +1,13 @@
 .delivery-item-cover {
-    height: 190px;
-    width: 260px;
+    height: 220px;
+    /* Increase height */
+    width: 280px;
+    /* Increase width */
     background-color: var(--primary-bg);
     box-shadow: var(--collection-shadow);
     border-radius: 8px;
+    margin: 0 10px;
+    /* Reduce margin for closer spacing */
 }
 
 .delivery-item-image {
@@ -19,4 +23,6 @@
     text-overflow: ellipsis;
     overflow: hidden;
     margin-top: 6px;
+    text-align: center;
+    /* Center the text */
 }
