@@ -3,6 +3,8 @@ import './index.css'
 import Filter from '../filter'
 import DeliveryCollections from './delivieryCollections'
 import TopBrands from './topBrands'
+import ExploreSection from '../exploreSection'
+import { exploreData } from '../../../data/restro'
 const Delivery = () => {
 
   const deliveryFilters = [
@@ -42,6 +44,7 @@ const Delivery = () => {
         <Filter filtersList={deliveryFilters}/>
         <DeliveryCollections/>
         <TopBrands/>
+        <ExploreSection list={exploreData} collectionName="Delivery Restaurants in Aurangabad"/>
       </div>
     </div>
   )
