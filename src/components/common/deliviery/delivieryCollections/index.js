@@ -3,7 +3,7 @@ import './delivieryCollection.css';
 import NextArrow from '../../carousel/nextArrow';
 import PrevArrow from '../../carousel/prevArrow';
 import Slider from 'react-slick';
-import DeliveryItem from './deliveryItem';
+
 
 const deliveryItems = [
   {
