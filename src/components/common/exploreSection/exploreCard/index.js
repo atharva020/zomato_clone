@@ -5,11 +5,11 @@ const ExploreCard = ({data}) => {
     const name=data?.info?.name??"";
     const coverImage=data?.info?.image?.url; 
     const deliveryTime=data?.order?.deliveryTime;
-    const rating=data?.info?.rating_text; 
+    const rating=data?.info?.rating?.rating_text; 
     const approxPrice=data?.info?.cfo?.text;
     const offers=data?.bulkOffers ?? [];
-    const cuisines=data?.info?.cuisine?.map((item)=>item.name).slice(0,3).join(", ");
-    const buttonContainers=data?.bottonContainers;
+    const cuisines=data?.info?.cuisine?.map((item)=>item.name).slice(0,3);
+    const bottomContainers=data?.bottonContainers;
     const goldOff=data?.gold?.text;
     const proOff=offers.length>1?offers[0].text:null;
     const discount=offers.length>1?offers[0].text:offers.length===1 ? offers[0].text : null;
@@ -18,8 +18,37 @@ const ExploreCard = ({data}) => {
     <div className='explore-card cur-po'>
     <div className='explore-card-cover'>
         <img src={coverImage} alt={name} className='explore-card-image'/>
+        <div className="delivery-time">{deliveryTime}</div>
+        {proOff && <div className="pro-off">{proOff}</div>}
+        {goldOff && <div className="gold-off absolute-center">{goldOff}</div>}
+        {discount && <div className="discount absolute-center">{discount}</div>}
       
     </div>
+    <div className="res-row">
+        <div className="res-name">{name}</div>
+        {rating &&(
+          <div className=" res-rating absolute-center">{rating}
+          <i className="fi fi-rr-star absolute-center res-rating-icon"></i>
+          </div>)}
+    </div>
+    <div className="res-row">{cuisines.length>0 && (<div className="res-cuisine">{cuisines.map((item,i)=>{
+        return (<span className='res-cuisine-tag'> {item} {i!==cuisines.length-1 && ','}</span>)
+    })}
+    
+    </div> )}
+    {approxPrice && <div className="res-price">{approxPrice}</div>}
+    </div>
+    {/* {bottomContainers.length>0 &&(
+        <div> 
+            <div className="card-separator"></div>
+            <div className="explore-bottom">
+                <img src={bottomContainers[0]?.image?.url} alt={bottomContainers[0]?.text} style={{height:"18px"}}/>
+                <div className='res-bottom-text'>{bottomContainers[0]?.text}</div>
+            </div>
+
+                
+        </div>
+    )} */}
     </div>
   )
 }
