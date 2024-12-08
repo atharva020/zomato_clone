@@ -1,6 +1,9 @@
 import React from 'react'
 import './index.css'
 import Collections from '../collections'
+import Filter from '../filter'
+import {diningOutData} from '../../../data/diningOut'
+import ExploreSection from '../exploreSection'
 const collectionsList = [
   {
     id:1,
@@ -21,10 +24,46 @@ const collectionsList = [
     places:"12 places"
   }
 ]
+
+const dinningFilters = [
+  {
+    id:1,
+    icon:<i className='fi fi-rr-settings-sliders absolute-center'/>,
+    title:"Filters",
+  },
+  {
+    id:2,
+    
+    title:"Rating 4.0+",
+  },
+  {
+    id:3,
+    title:"Safe and Hygienic",
+  },
+  {
+    id:4,
+    title:"Cuisines",
+  },
+  {
+    id:5,
+    title:"Delivery Time",
+  },
+  {
+    id:6,
+    title:"Great Offers",
+  },
+  
+
+]
+const diningList=diningOutData;
 const DiningOut = () => {
   return (
-    <div>
+    <div className='max-width'>
       <Collections list={collectionsList} />
+      <Filter filtersList={dinningFilters}/>
+      <ExploreSection list={diningList} collectionName="Dining Restaurants in Aurangabad"/>
+
+      
     </div>
   )
 }

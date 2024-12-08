@@ -1,6 +1,9 @@
 .collection-wrapper {
     padding: 16px;
     background-color: #f8f8f8;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
 }
 
 .collection {
