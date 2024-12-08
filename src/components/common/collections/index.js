@@ -1,30 +1,53 @@
 import React from 'react'
 import './collections.css'
+import Slider from 'react-slick'
 
-const collectionsList = [
-  {
-    id:1,
-    title:"trending this week",
-    cover:"data:image/jpg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAoHBwkHBgoJCAkLCwoMDxkQDw4ODx4WFxIZJCAmJSMgIyIoLTkwKCo2KyIjMkQyNjs9QEBAJjBGS0U+Sjk/QD3/2wBDAQsLCw8NDx0QEB09KSMpPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT3/wAARCAAyADIDASIAAhEBAxEB/8QAGwABAAIDAQEAAAAAAAAAAAAAAAIEAQMHBQb/xAApEAABAwEIAAYDAAAAAAAAAAAAAQIDBAUGERITFFKRFSFCUVNxFjFh/8QAGAEBAAMBAAAAAAAAAAAAAAAAAAIDBAH/xAAaEQEBAQEBAQEAAAAAAAAAAAAAAQIRAxNB/9oADAMBAAIRAxEAPwDswIajE9SDUZyQCYIarOSDUZyQCYI52+5nMnuBkEcye4A49LfardEj2vVMTEN8a+VcrXKqlJ91q1KdGJG7FP4bLMu7WwS4viXozauut9nnfKT9XvyW0Wuxc9cCy+9VVGxrkkVTVU2NUvZlSJcforJdusyoiscUa+t1LKjjPnJXt0t7pWxZ5n+Rll/Wvly5vI+ctGwa/QyRxuPLbd+0Gxqmi7N9Gy3WYpuM3PXRUvY1Ux1E7BzfwO2ODwS7VPHfNrEvoTobSHgnRuBLjjTtYuCdDbRcENwA0LSQu/bE6MbGD429FgAV9jB8begWAAAAAAAAAAAAH//Z",
-    places:"12 places"
-  },
-  {
-    id:2,
-    title:"Collections",
-    cover:"data:image/jpg;base64,/9j/4AAQSkZJRgABAQAASABIAAD/2wBDAAsHCAkIBwsJCQkMCwsNEBoREA8PECAXGBMaJiIoKCYiJSQqMD0zKi05LiQlNUg1OT9BREVEKTNLUEpCTz1DREH/2wBDAQsMDBAOEB8RER9BLCUsQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUH/wAARCAAyADIDASIAAhEBAxEB/8QAGwABAAIDAQEAAAAAAAAAAAAAAAIDAQQFBwb/xAApEAACAgECBQMEAwAAAAAAAAAAAQIDBBESBQYxUVITIZEUFSIjQUJT/8QAGAEBAQEBAQAAAAAAAAAAAAAAAAQCAwH/xAAcEQEAAgIDAQAAAAAAAAAAAAAAARECIgMSIRP/2gAMAwEAAhEDEQA/APXANV3Mbl3AyCO+PkjO+PdAZBjfHuhvj3QGQR9SHkgBxb+JSqrc2+h81l83XTudVWvXQ7d+HbbBxcXozjWctzqsdkIatnHPtWrpjV+p4nEs6z8pSaRuTzsnZrvOdLHzq47Y1v4FeNm2Q2uLWpFfLfqmI46Xy45bH2dhG/mCyFTas9zQyOCZbbaizSu4LmNabZGo+jyei980ZWr/AGA5/wBiy/8AOQNbs6vX9kewdcX/AAiQL0qt0VvrBBY9S6RRYAIejX4oi8ap/wBF8FoFCn6WnwXwC4AAAAAAAAAAAB//2Q==",
-    places:"12 places"
-  },
-  {
-    id:3,
-    title:"Collections",
-    cover:"",
-    places:"12 places"
-  }
-]
-const Collections = () => {
+import NextArrow from '../carousel/nextArrow'
+import PrevArrow from '../carousel/prevArrow'
+
+const settings = {
+ 
+  infinite: false,
+  slidesToShow: 4,
+  slidesToScroll: 1,
+  nextArrow: <NextArrow />,
+  prevArrow: <PrevArrow />,
+};
+
+const Collections = ({list}) => {
   return (
-    <div>
-      <Collections/>
+    <div className='collection-wrapper'>
+      <div className='max-width collection'>
+        <div className='collection-title'>
+          Collections
+        </div>
+        <div className='collection-subtitle-row'>
+          <div className='collection-subtitle-text'>
+            Explore curated lists of top restaurants, cafes, pubs, and bars in Delhi NCR, based on trends
+          </div>
+          <div className='collection-location'>
+              <div>All collections in Delhi NCR</div>
+              <i className='fi fi-rr-caret-right absolute-center'></i>
+          </div>
+        </div>
+        <Slider {...settings}>
+          {list.map((item)=>(
+            <div>
+              <div className='collection-cover'>
+                <img src={item.cover} alt={item.title} className='collection-image' />
+                <div className='gradient-layer'></div>
+                <div className='collection-card-title'>{item.title}</div>
+                <div className='collection-card-subtitle'>
+                  <div>{item.places} places</div>
+                  <i className='fi fi-rr-caret-right absolute-center'></i>
+                </div>
+              </div>
+            </div>
+          ))}
+        </Slider>
+
+      </div>
+      
     </div>
   )
 }
